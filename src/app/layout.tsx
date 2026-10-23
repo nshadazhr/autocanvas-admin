@@ -1,15 +1,22 @@
-import type { ReactNode } from "react";
-import "./globals.css";
+import type { Metadata } from 'next';
+import ThemeProvider from '@/src/provider/ThemeProvider';
+import type './globals.css';
 
-export const metadata = {
-  title: "Admin — AI Creator Platform",
-  description: "Internal operations console: jobs, failed jobs, feature flags, AI providers.",
+export const metadata: Metadata = {
+	title: 'AutoCanvas Admin',
+	description: 'AutoCanvas Administration Panel'
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <body className="min-h-screen bg-slate-50 font-sans text-slate-900 antialiased">{children}</body>
-    </html>
-  );
+export default function RootLayout({
+	children
+}: Readonly<{
+	children: React.ReactNode;
+}>) {
+	return (
+		<html lang='en' suppressHydrationWarning>
+			<body>
+				<ThemeProvider>{children}</ThemeProvider>
+			</body>
+		</html>
+	);
 }

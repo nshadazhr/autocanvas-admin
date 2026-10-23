@@ -1,3 +1,41 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+	color-scheme: light;
+
+	/* Light Theme */
+	--background: rgba(248, 250, 252, 1);
+	--foreground: rgba(15, 23, 42, 1);
+
+	--primary: rgba(37, 99, 235, 1);
+	--primary-foreground: rgba(255, 255, 255, 1);
+
+	--card: rgba(255, 255, 255, 1);
+	--card-foreground: rgba(15, 23, 42, 1);
+
+	--muted: rgba(241, 245, 249, 1);
+	--muted-foreground: rgba(100, 116, 139, 1);
+
+	--border: rgba(226, 232, 240, 1);
+}
+
+.dark {
+	color-scheme: dark;
+
+	/* Dark Theme */
+	--background: rgba(15, 23, 42, 1);
+	--foreground: rgba(248, 250, 252, 1);
+
+	--primary: rgba(96, 165, 250, 1);
+	--primary-foreground: rgba(15, 23, 42, 1);
+
+	--card: rgba(30, 41, 59, 1);
+	--card-foreground: rgba(248, 250, 252, 1);
+
+	--muted: rgba(51, 65, 85, 1);
+	--muted-foreground: rgba(148, 163, 184, 1);
+
+	--border: rgba(51, 65, 85, 1);
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground); }

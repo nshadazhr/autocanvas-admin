@@ -1,8 +1,13 @@
-import { redirect } from "next/navigation";
+import ThemeSwitcher from '@/src/components/ThemeSwitcher';
 
-// This app has no real "home" content — Jobs is the natural landing page
-// for an ops console (it's the thing most likely to need attention). The
-// role/auth check already happened in middleware.ts before this ever runs.
-export default function AdminRootPage() {
-  redirect("/jobs");
+export default function HomePage() {
+	return (
+		<main className='min-h-screen bg-background p-8 text-foreground'>
+			<div className='rounded-xl border border-border bg-card p-6'>
+				<h1 className='mb-4 text-2xl font-bold'>AutoCanvas Admin</h1>
+
+				<ThemeSwitcher />
+			</div>
+		</main>
+	);
 }
