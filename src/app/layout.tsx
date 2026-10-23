@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import ThemeProvider from '@/src/provider/ThemeProvider';
-import type './globals.css';
+import './globals.css';
 
 export const metadata: Metadata = {
 	title: 'AutoCanvas Admin',
