@@ -1,28 +1,26 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-
+import { useStrings } from '@/src/hooks/useStrings';
+import { Icon } from './ui/icon';
 export default function ThemeSwitcher() {
 	const { theme, setTheme } = useTheme();
 	const [mounted, setMounted] = useState(false);
-
-	useEffect(() => {
-		setMounted(true);
-	}, []);
-
-	if (!mounted) return null;
-
+	const { lsv } = useStrings();
+	useEffect(() => setMounted(true), []);
 	return (
-		<select
-			value={theme}
-			onChange={e => setTheme(e.target.value)}
-			className='rounded-lg border border-border bg-card px-3 py-2 text-card-foreground'
-			aria-label='Select theme'
-		>
-			<option value='light'>Light</option>
-			<option value='dark'>Dark</option>
-			<option value='system'>System</option>
-		</select>
+		<div className="theme-switch">
+			<Icon name={mounted && theme === 'dark' ? 'moon' : mounted && theme === 'light' ? 'sun' : 'monitor'} />
+			<select
+				aria-label={lsv('theme')}
+				value={mounted ? theme : 'system'}
+				onChange={(e) => setTheme(e.target.value)}
+				disabled={!mounted}
+			>
+				<option value="light">{lsv('light')}</option>
+				<option value="dark">{lsv('dark')}</option>
+				<option value="system">{lsv('systemTheme')}</option>
+			</select>
+		</div>
 	);
 }
